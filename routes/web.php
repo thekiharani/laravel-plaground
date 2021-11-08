@@ -22,6 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
+
 Route::get('customers', [\App\Http\Controllers\CustomerController::class, 'index'])
     ->name('customers.index');
 Route::get('customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'show'])
@@ -30,3 +31,6 @@ Route::get('customers/{customer}/update', [\App\Http\Controllers\CustomerControl
     ->name('customers.update');
 Route::get('customers/{customer}/trash', [\App\Http\Controllers\CustomerController::class, 'destroy'])
     ->name('customers.trash');
+
+Route::get('pay', [\App\Http\Controllers\PayOrderController::class, 'store'])
+    ->name('pay.store');
