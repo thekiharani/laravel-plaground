@@ -17,7 +17,7 @@ class CustomerFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'phone_number' => $this->faker->unique()->e164PhoneNumber(),
-            'last_contacted' => now()->addMinutes(random_int(0, 720)),
+            'last_contacted' => now()->subMinutes(random_int(0, 720)),
             'is_active' => $this->faker->randomElement([0, 1])
         ];
     }

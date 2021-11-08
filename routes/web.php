@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get('customers', [\App\Http\Controllers\CustomerController::class, 'index'])
+    ->name('customers.index');
+Route::get('customers/{customer}', [\App\Http\Controllers\CustomerController::class, 'show'])
+    ->name('customers.show');
+Route::get('customers/{customer}/update', [\App\Http\Controllers\CustomerController::class, 'update'])
+    ->name('customers.update');
+Route::get('customers/{customer}/trash', [\App\Http\Controllers\CustomerController::class, 'destroy'])
+    ->name('customers.trash');
