@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('pay', [\App\Http\Controllers\PayOrderController::class, 'store'])
+    ->name('pay.store');
